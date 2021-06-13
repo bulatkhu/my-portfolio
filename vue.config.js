@@ -25,6 +25,11 @@ module.exports = {
     types.forEach((type) =>
       addStyleResource(config.module.rule("scss").oneOf(type))
     );
+
+    config.plugin("html").tap((args) => {
+      args[0].title = "Bulat's Portfolio";
+      return args;
+    });
   },
   configureWebpack: {
     module: {
