@@ -18,7 +18,7 @@
 
       <SocialLinks />
     </div>
-    <div class="main-col"></div>
+    <!--    <div class="main-col"></div>-->
   </div>
 </template>
 
@@ -51,9 +51,17 @@ export default {
 
   color: #fff;
 
+  @media (max-width: 720px) {
+    width: 95%;
+  }
+
   &-col {
     align-self: stretch;
     flex-basis: 49%;
+
+    @media (max-width: 1200px) {
+      flex-basis: unset;
+    }
 
     display: flex;
     justify-content: center;
@@ -101,16 +109,19 @@ export default {
   }
 
   &__title {
-    font-size: 60px;
+    @include fluid-type(320px, 1920px, 24px, 60px);
   }
 
   &__subTitle {
-    font-size: 40px;
+    @include fluid-type(320px, 1920px, 22px, 40px);
+
     margin-bottom: 20px;
   }
 
   &__text {
     margin-bottom: 20px;
+
+    @include fluid-type(320px, 1920px, 14px, 18px);
   }
 
   &__btns {

@@ -13,15 +13,24 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .content {
   background: #171721;
   min-height: 100vh;
   padding: 20px;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
   flex: 1;
+
+  @media (max-width: 720px) {
+    padding: 15px;
+  }
+
+  @media (max-width: 520px) {
+    padding: 10px;
+  }
 }
 
 .blueBg {

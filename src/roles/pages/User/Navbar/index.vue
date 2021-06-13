@@ -1,33 +1,52 @@
 <template>
   <header class="header">
     <ul class="header-list">
-      <li class="header-list__item">
+      <li
+        v-for="({ to, label, icon }, index) in links"
+        class="header-list__item"
+        :key="index"
+      >
         <router-link
-          to="/"
+          :to="to"
           class="header-list__btn"
           exact-active-class="active"
         >
-          <HomeIcon />
-          Home
+          <component :is="icon" />
+          {{ label }}
         </router-link>
       </li>
-      <li class="header-list__item">
-        <router-link
-          to="/about"
-          class="header-list__btn"
-          exact-active-class="active"
-          ><AboutIcon /> About me</router-link
-        >
-      </li>
-      <li class="header-list__item">
-        <router-link
-          to="/contacts"
-          class="header-list__btn"
-          exact-active-class="active"
-          ><ContactIcon /> Contacts</router-link
-        >
-      </li>
     </ul>
+
+    <div class="header-mob__wrapper">
+      <div class="header-mob">
+        <button
+          @click="openMenu = !openMenu"
+          :class="['header-mob__burger', openMenu && 'active']"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
+      <ul :class="['header-mob__list mobList', openMenu && 'active']">
+        <li
+          v-for="({ to, label, icon }, index) in links"
+          class="header-list__item"
+          :key="index"
+          @click="openMenu = false"
+        >
+          <router-link
+            :to="to"
+            class="header-list__btn"
+            exact-active-class="active"
+          >
+            <component :is="icon" />
+            {{ label }}
+          </router-link>
+        </li>
+      </ul>
+    </div>
 
     <!--    <ul class="header-list">-->
     <!--      <li class="header-list__item">-->
@@ -44,12 +63,23 @@
 
 <script>
 import AboutIcon from "@/assets/svg-icons/about-icon.svg";
-// import PortfolioIcon from "@/assets/svg-icons/portfolio-icon.svg";
 import ContactIcon from "@/assets/svg-icons/contacts-icon.svg";
 import HomeIcon from "@/assets/svg-icons/home-icon.svg";
 
+const links = [
+  { to: "/", label: "Home", icon: HomeIcon },
+  { to: "/contacts", label: "Contacts", icon: ContactIcon },
+  { to: "/about", label: "About", icon: AboutIcon },
+];
+
 export default {
   components: { AboutIcon, ContactIcon, HomeIcon },
+  data() {
+    return {
+      links,
+      openMenu: false,
+    };
+  },
 };
 </script>
 
@@ -68,12 +98,33 @@ export default {
   margin: 0 auto 60px auto;
   justify-content: space-between;
 
+  @media (max-width: 520px) {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+  }
+
   &-list {
     display: flex;
+
+    @media (max-width: 520px) {
+      display: none;
+    }
 
     &__item {
       &:not(:last-child) {
         margin-right: 15px;
+      }
+
+      @media (max-width: 520px) {
+        all: unset;
+        display: inline-block;
+
+        margin-bottom: 15px;
+
+        a {
+          display: inline-block;
+        }
       }
     }
 
@@ -86,6 +137,8 @@ export default {
         rgb(255 255 255 / 20%) 0 0 0 0.5px inset;
       transition: all 0.3s ease-out 0s;
       border-radius: 10px;
+
+      @include fluid-type(320px, 1920px, 14px, 18px);
 
       text-transform: uppercase;
 
@@ -108,6 +161,84 @@ export default {
         left: 5px;
       }
     }
+  }
+}
+
+.header-mob__wrapper {
+  display: none;
+  background-color: $mainBlack;
+  padding: 0 10px;
+  width: calc(100% + 20px);
+  margin: -10px;
+
+  @media (max-width: 520px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.header-mob {
+  height: 50px;
+  //width: calc(100% + 20px);
+  //margin: -10px;
+  padding: 0 10px;
+
+  &__burger {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+
+    span {
+      display: block;
+      width: 35px;
+      height: 2px;
+      background-color: #fff;
+      margin: 6px 0;
+      transition: 0.4s;
+
+      &:first-child {
+        //transform: rotate(-45deg) translate(-9px, 6px);
+      }
+
+      &:nth-child(2) {
+      }
+
+      &:last-child {
+        //transform: rotate(45deg) translate(-8px, -8px);
+      }
+    }
+
+    &.active {
+      span {
+        &:first-child {
+          transform: rotate(-45deg) translate(-8px, 5px);
+          width: 120%;
+        }
+        &:nth-child(2) {
+          transform: scale(0);
+        }
+        &:last-child {
+          width: 120%;
+          transform: rotate(45deg) translate(-7px, -3px);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 520px) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.mobList {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+
+  &.active {
+    max-height: 500px;
   }
 }
 </style>

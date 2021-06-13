@@ -28,6 +28,10 @@ export default {
 
   flex-wrap: wrap;
 
+  @media (max-width: 450px) {
+    flex-basis: 33%;
+  }
+
   &__label {
     font-size: 14px;
   }

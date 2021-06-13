@@ -31,6 +31,7 @@ export default {
   &__description {
     color: $purple;
     margin-bottom: 40px;
+    @include fluid-type(320px, 1920px, 18px, 24px);
   }
 
   &__links {

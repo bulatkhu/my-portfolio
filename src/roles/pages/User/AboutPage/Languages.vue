@@ -43,13 +43,21 @@ export default {
 .langs {
   display: flex;
   align-items: center;
+  margin-left: -10px;
+
+  @media (max-width: 520px) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 
   &-item {
     text-align: center;
 
-    &:not(:last-child) {
-      margin-right: 30px;
-    }
+    //@media (max-width: 520px) {
+    //  margin-bottom: 10px;
+    //}
+
+    margin: 10px;
 
     &__icon {
       width: 20px;

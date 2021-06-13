@@ -59,6 +59,10 @@ export default {
   display: flex;
   justify-content: space-between;
 
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
+
   &__col {
     flex-basis: calc(50% - 5px);
     background-color: $mainBlack;
@@ -68,6 +72,10 @@ export default {
       justify-content: center;
       display: flex;
       flex-flow: row wrap;
+
+      @media (max-width: 650px) {
+        padding-top: 0;
+      }
     }
   }
 }

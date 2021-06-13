@@ -72,10 +72,10 @@ export default {
 
 <style scoped lang="scss">
 .contacts {
-  max-width: 700px;
   margin: auto;
   color: #fff;
-
+  width: 700px;
+  max-width: 100%;
   &__title {
     font-size: 25px;
     letter-spacing: 1.5px;
@@ -115,6 +115,21 @@ export default {
 
   &__col {
     flex-basis: calc(50% - 10px);
+  }
+
+  @media (max-width: 520px) {
+    flex-direction: column;
+
+    &__col {
+      flex-basis: 100%;
+      align-items: center;
+      flex-direction: column;
+      display: flex;
+
+      &:last-child {
+        display: none;
+      }
+    }
   }
 }
 
