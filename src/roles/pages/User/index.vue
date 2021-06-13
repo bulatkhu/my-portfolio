@@ -25,6 +25,7 @@ export default {
 }
 
 .blueBg {
-  background: linear-gradient(rgb(26, 2, 108) 0%, rgb(70, 48, 142) 100%);
+  background: url("/images/background-main-page.jpg") no-repeat center 10%;
+  background-size: cover;
 }
 </style>

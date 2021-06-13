@@ -5,7 +5,7 @@
         <h2 class="about__title">About me</h2>
 
         <p class="about__text">
-          Hello friends! I am Artem, a
+          Hello friends! I am Bulat, a
           {{ myAge }} years old Full-Stack JavaScript & NodeJS developer.
           Currently based in Finland, Espoo, but originally hail from Russia,
           Ufa.

@@ -29,27 +29,27 @@
       </li>
     </ul>
 
-    <ul class="header-list">
-      <li class="header-list__item">
-        <router-link
-          to="/portfolio"
-          class="header-list__btn"
-          exact-active-class="active"
-          ><PortfolioIcon /> Portfolio</router-link
-        >
-      </li>
-    </ul>
+    <!--    <ul class="header-list">-->
+    <!--      <li class="header-list__item">-->
+    <!--        <router-link-->
+    <!--          to="/portfolio"-->
+    <!--          class="header-list__btn"-->
+    <!--          exact-active-class="active"-->
+    <!--          ><PortfolioIcon /> Portfolio</router-link-->
+    <!--        >-->
+    <!--      </li>-->
+    <!--    </ul>-->
   </header>
 </template>
 
 <script>
 import AboutIcon from "@/assets/svg-icons/about-icon.svg";
-import PortfolioIcon from "@/assets/svg-icons/portfolio-icon.svg";
+// import PortfolioIcon from "@/assets/svg-icons/portfolio-icon.svg";
 import ContactIcon from "@/assets/svg-icons/contacts-icon.svg";
 import HomeIcon from "@/assets/svg-icons/home-icon.svg";
 
 export default {
-  components: { AboutIcon, PortfolioIcon, ContactIcon, HomeIcon },
+  components: { AboutIcon, ContactIcon, HomeIcon },
 };
 </script>
 

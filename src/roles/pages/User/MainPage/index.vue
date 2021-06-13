@@ -11,9 +11,9 @@
       </p>
 
       <div class="main-col__btns">
-        <router-link to="/" class="main-col__btn">My portfolio</router-link>
-        <router-link to="/" class="main-col__btn">About me</router-link>
-        <router-link to="/" class="main-col__btn">Contacts</router-link>
+        <!--        <router-link to="/" class="main-col__btn">My portfolio</router-link>-->
+        <router-link to="/about" class="main-col__btn">About me</router-link>
+        <router-link to="/contacts" class="main-col__btn">Contacts</router-link>
       </div>
 
       <SocialLinks />

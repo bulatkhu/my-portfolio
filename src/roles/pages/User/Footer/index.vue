@@ -23,7 +23,7 @@ export default {
   position: relative;
   border-top: 1px solid rgb(51, 48, 54);
   padding: 40px 50px 50px;
-  margin: 0 -20px;
+  margin: 40px -20px 0 -20px;
 
   text-align: center;
   font-size: 30px;
