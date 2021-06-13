@@ -42,16 +42,20 @@
         />
       </div>
     </div>
+
+    <Footer />
   </div>
 </template>
 
 <script>
-import Languages from "@/roles/pages/User/AboutPage/Languages";
-import SkillsBlock from "@/roles/pages/User/AboutPage/SkillsBlock";
 import SkillsData from "@/roles/pages/User/AboutPage/Data";
 
+import Languages from "@/roles/pages/User/AboutPage/Languages";
+import SkillsBlock from "@/roles/pages/User/AboutPage/SkillsBlock";
+import Footer from "@/roles/pages/User/Footer";
+
 export default {
-  components: { Languages, SkillsBlock },
+  components: { Languages, SkillsBlock, Footer },
   data() {
     return {
       skillItems: SkillsData,

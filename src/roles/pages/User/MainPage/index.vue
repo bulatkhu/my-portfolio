@@ -16,34 +16,17 @@
         <router-link to="/" class="main-col__btn">Contacts</router-link>
       </div>
 
-      <div class="main-col__btns">
-        <a
-          class="main-col__socialLink"
-          target="_blank"
-          href="https://github.com/bulatkhu"
-          ><GithubIcon
-        /></a>
-        <a
-          class="main-col__socialLink"
-          target="_blank"
-          href="https://www.linkedin.com/in/bulat-khudainazarov-891a501b5/"
-          ><LinkdinIcon
-        /></a>
-        <!--        <a class="main-col__socialLink" target="_blank" href="/social"-->
-        <!--          ><GithubIcon-->
-        <!--        /></a>-->
-      </div>
+      <SocialLinks />
     </div>
     <div class="main-col"></div>
   </div>
 </template>
 
 <script>
-import GithubIcon from "@/assets/svg-icons/github-icon.svg";
-import LinkdinIcon from "@/assets/svg-icons/linkdin-icon.svg";
+import SocialLinks from "../components/SocialLinks";
 
 export default {
-  components: { GithubIcon, LinkdinIcon },
+  components: { SocialLinks },
   mounted() {
     const $content = document.querySelector(".content");
     $content.classList.add("blueBg");
