@@ -17,10 +17,16 @@
       </div>
 
       <div class="main-col__btns">
-        <a class="main-col__socialLink" target="_blank" href="/social"
+        <a
+          class="main-col__socialLink"
+          target="_blank"
+          href="https://github.com/bulatkhu"
           ><GithubIcon
         /></a>
-        <a class="main-col__socialLink" target="_blank" href="/social"
+        <a
+          class="main-col__socialLink"
+          target="_blank"
+          href="https://www.linkedin.com/in/bulat-khudainazarov-891a501b5/"
           ><LinkdinIcon
         /></a>
         <!--        <a class="main-col__socialLink" target="_blank" href="/social"-->
@@ -38,6 +44,14 @@ import LinkdinIcon from "@/assets/svg-icons/linkdin-icon.svg";
 
 export default {
   components: { GithubIcon, LinkdinIcon },
+  mounted() {
+    const $content = document.querySelector(".content");
+    $content.classList.add("blueBg");
+  },
+  beforeDestroy() {
+    const $content = document.querySelector(".content");
+    $content.classList.remove("blueBg");
+  },
 };
 </script>
 

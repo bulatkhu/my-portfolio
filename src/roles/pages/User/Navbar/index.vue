@@ -65,7 +65,7 @@ export default {
   max-width: 90%;
   width: 100%;
   display: flex;
-  margin: 0 auto auto auto;
+  margin: 0 auto 60px auto;
   justify-content: space-between;
 
   &-list {

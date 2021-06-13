@@ -15,12 +15,16 @@ export default {
 
 <style scoped>
 .content {
-  background: linear-gradient(rgb(26, 2, 108) 0%, rgb(70, 48, 142) 100%);
+  background: #171721;
   min-height: 100vh;
   padding: 20px;
 
   display: flex;
   flex-direction: column;
   flex: 1;
+}
+
+.blueBg {
+  background: linear-gradient(rgb(26, 2, 108) 0%, rgb(70, 48, 142) 100%);
 }
 </style>

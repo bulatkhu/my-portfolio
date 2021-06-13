@@ -23,6 +23,8 @@ export default {
   color: inherit;
 
   font-weight: unset;
+
+  font-family: inherit;
 }
 
 ul {
@@ -45,7 +47,7 @@ body {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Raleway", sans-serif;
   color: #2c3e50;
 }
 </style>
