@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import SocialLinks from "../components/SocialLinks";
+import SocialLinks from "../SocialLinks";
 export default {
   components: { SocialLinks },
 };

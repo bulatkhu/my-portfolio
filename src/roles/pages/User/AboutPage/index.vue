@@ -52,7 +52,7 @@ import SkillsData from "@/roles/pages/User/AboutPage/Data";
 
 import Languages from "@/roles/pages/User/AboutPage/Languages";
 import SkillsBlock from "@/roles/pages/User/AboutPage/SkillsBlock";
-import Footer from "@/roles/pages/User/Footer";
+import Footer from "@/roles/pages/User/components/Footer";
 
 export default {
   components: { Languages, SkillsBlock, Footer },
@@ -86,12 +86,16 @@ export default {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+
+    @include fluid-type(320px, 1920px, 18px, 24px);
   }
 
   &__text {
     letter-spacing: 0.2px;
     flex: 3.5 1 0;
     margin-bottom: 15px;
+
+    @include fluid-type(320px, 1920px, 14px, 18px);
 
     a {
       color: $purple;

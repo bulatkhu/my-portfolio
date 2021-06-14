@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Navbar from "@/roles/pages/User/Navbar";
+import Navbar from "@/App/Navbar";
 
 export default {
   components: { Navbar },

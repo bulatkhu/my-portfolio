@@ -7,7 +7,7 @@
 
 <script>
 import Contacts from "../components/Contacts";
-import Footer from "@/roles/pages/User/Footer";
+import Footer from "@/roles/pages/User/components/Footer";
 
 export default {
   components: { Contacts, Footer },

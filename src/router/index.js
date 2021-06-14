@@ -1,7 +1,8 @@
 import VueRouter from "vue-router";
-import MainPage from "@/roles/pages/User/MainPage";
-import AboutPage from "@/roles/pages/User/AboutPage";
-import Contacts from "@/roles/pages/User/ContactsPage";
+const MainPage = () => import("@/roles/pages/User/MainPage");
+const AboutPage = () => import("@/roles/pages/User/AboutPage");
+const Contacts = () => import("@/roles/pages/User/ContactsPage");
+const Portfolio = () => import("@/roles/pages/User/Portfolio");
 
 const router = new VueRouter({
   mode: "history",
@@ -17,6 +18,10 @@ const router = new VueRouter({
     {
       path: "/contacts",
       component: Contacts,
+    },
+    {
+      path: "/portfolio",
+      component: Portfolio,
     },
   ],
 });

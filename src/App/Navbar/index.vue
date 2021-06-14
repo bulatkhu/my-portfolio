@@ -31,7 +31,7 @@
 
       <ul :class="['header-mob__list mobList', openMenu && 'active']">
         <li
-          v-for="({ to, label, icon }, index) in links"
+          v-for="({ to, label, icon }, index) in [...links, ...sideLinks]"
           class="header-list__item"
           :key="index"
           @click="openMenu = false"
@@ -48,16 +48,22 @@
       </ul>
     </div>
 
-    <!--    <ul class="header-list">-->
-    <!--      <li class="header-list__item">-->
-    <!--        <router-link-->
-    <!--          to="/portfolio"-->
-    <!--          class="header-list__btn"-->
-    <!--          exact-active-class="active"-->
-    <!--          ><PortfolioIcon /> Portfolio</router-link-->
-    <!--        >-->
-    <!--      </li>-->
-    <!--    </ul>-->
+    <ul v-if="sideLinks.length" class="header-list">
+      <li
+        v-for="({ to, label, icon }, index) in sideLinks"
+        :key="index"
+        class="header-list__item"
+      >
+        <router-link
+          :to="to"
+          class="header-list__btn"
+          exact-active-class="active"
+        >
+          <component :is="icon" />
+          {{ label }}</router-link
+        >
+      </li>
+    </ul>
   </header>
 </template>
 
@@ -65,6 +71,7 @@
 import AboutIcon from "@/assets/svg-icons/about-icon.svg";
 import ContactIcon from "@/assets/svg-icons/contacts-icon.svg";
 import HomeIcon from "@/assets/svg-icons/home-icon.svg";
+import PortfolioIcon from "@/assets/svg-icons/portfolio-icon.svg";
 
 const links = [
   { to: "/", label: "Home", icon: HomeIcon },
@@ -72,11 +79,15 @@ const links = [
   { to: "/about", label: "About", icon: AboutIcon },
 ];
 
+const sideLinks = [
+  { to: "/portfolio", label: "Portfolio", icon: PortfolioIcon },
+];
+
 export default {
-  components: { AboutIcon, ContactIcon, HomeIcon },
   data() {
     return {
       links,
+      sideLinks,
       openMenu: false,
     };
   },
@@ -84,6 +95,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$hideMediumMenuIcon: 720px;
+$hideDeskMenuOn: 600px;
+
 .header-list__btn.active {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: rgb(0 0 0 / 10%) 0 10px 20px,
@@ -98,8 +112,8 @@ export default {
   margin: 0 auto 60px auto;
   justify-content: space-between;
 
-  @media (max-width: 520px) {
-    margin: 0;
+  @media (max-width: $hideDeskMenuOn) {
+    margin: 0 0 40px 0;
     padding: 0;
     max-width: 100%;
   }
@@ -107,7 +121,7 @@ export default {
   &-list {
     display: flex;
 
-    @media (max-width: 520px) {
+    @media (max-width: $hideDeskMenuOn) {
       display: none;
     }
 
@@ -116,7 +130,7 @@ export default {
         margin-right: 15px;
       }
 
-      @media (max-width: 520px) {
+      @media (max-width: $hideDeskMenuOn) {
         all: unset;
         display: inline-block;
 
@@ -138,10 +152,9 @@ export default {
       transition: all 0.3s ease-out 0s;
       border-radius: 10px;
 
-      @include fluid-type(320px, 1920px, 14px, 18px);
+      @include fluid-type(320px, 1920px, 12px, 18px);
 
       text-transform: uppercase;
-
       padding: 10px 10px 10px 35px;
 
       &:hover,
@@ -149,6 +162,13 @@ export default {
         background: rgba(255, 255, 255, 0.1);
         box-shadow: rgb(0 0 0 / 10%) 0 10px 20px,
           rgb(255 255 255 / 20%) 0 0 0 0.5px inset;
+      }
+
+      @media (max-width: $hideMediumMenuIcon) {
+        padding: 8px;
+        svg {
+          display: none;
+        }
       }
 
       svg {
@@ -168,10 +188,10 @@ export default {
   display: none;
   background-color: $mainBlack;
   padding: 0 10px;
-  width: calc(100% + 20px);
-  margin: -10px;
+  width: calc(100% + 30px);
+  margin: -15px;
 
-  @media (max-width: 520px) {
+  @media (max-width: $hideDeskMenuOn) {
     display: flex;
     flex-direction: column;
   }
@@ -225,7 +245,7 @@ export default {
     }
   }
 
-  @media (max-width: 520px) {
+  @media (max-width: $hideDeskMenuOn) {
     display: flex;
     align-items: center;
     justify-content: flex-end;
