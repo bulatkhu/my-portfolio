@@ -3,6 +3,7 @@ const MainPage = () => import("@/roles/pages/User/MainPage");
 const AboutPage = () => import("@/roles/pages/User/AboutPage");
 const Contacts = () => import("@/roles/pages/User/ContactsPage");
 const Portfolio = () => import("@/roles/pages/User/Portfolio");
+const ProjectItem = () => import("@/roles/pages/User/ProjectItem");
 
 const router = new VueRouter({
   mode: "history",
@@ -22,6 +23,11 @@ const router = new VueRouter({
     {
       path: "/portfolio",
       component: Portfolio,
+    },
+
+    {
+      path: "/project/:id",
+      component: ProjectItem,
     },
   ],
 });

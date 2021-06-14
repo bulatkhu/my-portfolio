@@ -71,7 +71,7 @@
 import AboutIcon from "@/assets/svg-icons/about-icon.svg";
 import ContactIcon from "@/assets/svg-icons/contacts-icon.svg";
 import HomeIcon from "@/assets/svg-icons/home-icon.svg";
-import PortfolioIcon from "@/assets/svg-icons/portfolio-icon.svg";
+// import PortfolioIcon from "@/assets/svg-icons/portfolio-icon.svg";
 
 const links = [
   { to: "/", label: "Home", icon: HomeIcon },
@@ -80,7 +80,7 @@ const links = [
 ];
 
 const sideLinks = [
-  { to: "/portfolio", label: "Portfolio", icon: PortfolioIcon },
+  // { to: "/portfolio", label: "Portfolio", icon: PortfolioIcon },
 ];
 
 export default {

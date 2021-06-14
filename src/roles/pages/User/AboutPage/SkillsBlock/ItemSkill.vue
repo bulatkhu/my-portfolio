@@ -1,5 +1,5 @@
 <template>
-  <div class="item-skill">
+  <div :class="['item-skill', className]">
     <div class="item-skill__img">
       <img v-if="typeof icon === 'string'" :src="icon" alt="item" />
       <component v-else :is="icon" />
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  props: ["icon", "label"],
+  props: ["icon", "label", "className"],
 };
 </script>
 
