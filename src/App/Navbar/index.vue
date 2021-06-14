@@ -207,6 +207,7 @@ $hideDeskMenuOn: 600px;
     display: inline-block;
     cursor: pointer;
     position: relative;
+    margin-top: 3px;
 
     span {
       display: block;

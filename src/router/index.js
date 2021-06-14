@@ -24,7 +24,6 @@ const router = new VueRouter({
       path: "/portfolio",
       component: Portfolio,
     },
-
     {
       path: "/project/:id",
       component: ProjectItem,
